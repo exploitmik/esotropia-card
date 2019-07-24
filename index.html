@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Estudos UI Design - Esotropia Card</title>
+	<link rel="stylesheet" type="text/css" href="style.min.css">
+</head>
+<body>
+
+	<section class="container">
+		<div class="card grid">
+			<figure>
+				<img class="picture" src="esotropia.jpg">
+				<button class="btn">
+					<img src="arrow-right.svg">
+				</button>
+			</figure>
+			<div class="infos">
+				<div class="tag">picture</div>
+				<div class="title">ESOTROPIA</div>
+				<div class="artist">MOHAMMAD KEYVAN</div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		function animationCard(){
+			function contraiCard(){
+				card.style.animation = "contraiCard .6s ease";
+				infos.style.display = 'none';
+				card.classList.remove('width-full');
+			}
+
+			function expandCard(){
+				card.style.animation = "expandCard .4s ease";
+				setTimeout( () => {
+					infos.style.display = 'grid';
+					infos.style.animation = 'fadeIn .4s ease';
+				}, 350);
+				card.classList.add('width-full');
+			}
+
+			const btn = document.querySelector('.btn');
+			const card = document.querySelector('.card');
+			const infos = document.querySelector('.infos');
+			btn.addEventListener('click', () => {
+				card.classList.contains('width-full') ? contraiCard() : expandCard();
+			});
+		}
+		animationCard();
+	</script>
+
+</body>
+</html>
